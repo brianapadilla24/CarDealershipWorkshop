@@ -37,7 +37,7 @@ public class DealershipFileManager {
                 String model = data[3];
                 String vehicleType = data[4];
                 String color = data[5];
-                int odometer = Integer.parseInt(data[6]);
+                double odometer = Double.parseDouble(data[6]);
                 double price = Double.parseDouble(data[7]);
                 //Creating Vehicle Object and add to list
                 vehicles.add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
@@ -59,7 +59,7 @@ public class DealershipFileManager {
     public static void saveDealership(Dealership dealership){
         try(FileWriter writer = new FileWriter(filePath)){
             //Writing dealership info name/address/phone
-            writer.write(dealership.getName()+","+dealership.getAddress()+","+dealership.getPhone()+"\n");
+            writer.write(dealership.getName()+"|"+dealership.getAddress()+"|"+dealership.getPhone()+"\n");
 
             //Writing vehicle inventory info
             for (Vehicle vehicle : dealership.getInventory()){
@@ -70,5 +70,4 @@ public class DealershipFileManager {
         }
     }
 
-    //Very Much Please don't touch this took me 2 hours
 }
