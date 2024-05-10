@@ -12,25 +12,45 @@ public class UserInterface {
         this.dealership = null;
     }
 
-    public void display() {
-        System.out.println("First Type in your dealership"); //Loads Dealership
+    public void getDealership(){
+        System.out.println("""
+                                         Howdy!
+                    Pick a dealership! Careful! Don't pick the wrong one...
+                
+                                    CascadeAutoSales
+                                          OR
+                                      SummitMotors"""); //Loads Dealership
         Dealership dealership = DealershipFileManager.getDealership(scanner.nextLine());
         setDealership(dealership);
-        System.out.println("Welcome to the Dealership Management System!");
-        System.out.println("1. Add a vehicle");
-        System.out.println("2. Get all vehicles");
-        System.out.println("3. Get vehicles by price");
-        System.out.println("4. Get vehicles by make and model");
-        System.out.println("5. Get vehicles by year");
-        System.out.println("6. Get vehicles by color");
-        System.out.println("7. Get vehicles by mileage");
-        System.out.println("8. Get vehicles by type");
-        System.out.println("9. Remove a vehicle");
-        System.out.println("0. Exit");
-        System.out.println("Enter your choice:");
+    }
 
+    public void display() {
+        while (true) { // loop indefinitely until user chooses to exit
 
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("""
+                \\______________________/
+                  __/__|_________|__\\__
+                /⭕⭕____________⭕⭕\\
+                |_____/___________\\_____|
+                \\💥💥__|_|_|__|_|__💥💥/
+                
+                       -Vroooom-
+                
+                Welcome welcome!!
+                1. Add a vehicle.
+                2. Display our stock!
+                3. Check out our cars by their pricing!
+                4. Display our cars by make & model!!
+                5. Check them out by year!
+                6. Or by color?
+                7. Maybe you want ta see 'em by mileage?
+                8. Look at 'em all by type!
+                
+                9. Remove a vehicle
+                0. Hey hey where you goin'!??! (Exit)
+                
+                What you lookin' for?""");
+
         int choice = scanner.nextInt();
 
         switch (choice) {
@@ -62,10 +82,11 @@ public class UserInterface {
                 processRemoveVehicleRequest();
                 break;
             case 0:
-                System.out.println("Exiting...");
+                System.out.println("\nSo Long SUCKER (Exiting)");
                 return;
             default:
-                System.out.println("Invalid choice!");
+                System.out.println("\nMake some SENSE! (Invalid Choice)");
+        }
         }
     }
 
@@ -78,9 +99,9 @@ public class UserInterface {
     }
 
     public void processGetByPriceRequest() {
-        System.out.println("Enter minimum price:");
+        System.out.println("How low you willin' to go?(Minimum Price):\n");
         double minPrice = scanner.nextDouble();
-        System.out.println("Enter max price:");
+        System.out.println("Whats your max budget lookin' like?(Maximum Price):");
         double maxPrice = scanner.nextDouble();
 
         //retrieve vehicles by price range form the dealership
@@ -88,10 +109,10 @@ public class UserInterface {
 
         //display the retrieved vehicles
         if(vehicles.isEmpty()) {
-            System.out.println("No vehicles found in the specified price range.");
+            System.out.println("Couldn't make any sense of your jibberish! Try again bucko(No vehicles found in the specified price range.)");
         }
         else {
-            System.out.println("Vehicles in the specified price range: ");
+            System.out.println("This is what I got that fits your description:");
             for (Vehicle vehicle : vehicles) {
                 System.out.println(vehicle);
             }
@@ -111,7 +132,7 @@ public class UserInterface {
 
         //display the retrieved vehicles
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles found for the specified make and model.");
+            System.out.println("Nothin' found in that make & model.");
         }
         else {
             System.out.println("Vehicles for the specified make and model:");
@@ -134,7 +155,7 @@ public class UserInterface {
 
         //display the retrieved vehicles
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles found for the specified Year.");
+            System.out.println("Nothin' found for that year buddy.");
         } else {
             System.out.println("Vehicles for the specified Year: ");
             for (Vehicle vehicle : vehicles) {
@@ -155,9 +176,9 @@ public class UserInterface {
 
         //display the retrieved vehicles
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles found in your color.");
+            System.out.println("Nothin' in that color fella.");
         } else {
-            System.out.println("Vehicles for the specified color:");
+            System.out.println("Here's what I got in that color");
             for (Vehicle vehicle : vehicles) {
                 System.out.println(vehicle);
 
@@ -177,7 +198,7 @@ public class UserInterface {
 
         //display the retrieved vehicles
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles found for the specified mileage requested.");
+            System.out.println("No can do. Nothing in that mileage.");
         } else {
             System.out.println("Vehicles for the specified mileage:");
             for (Vehicle vehicle : vehicles) {
@@ -197,7 +218,7 @@ public class UserInterface {
 
         //display the retrieved vehicles
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles found for your Type.");
+            System.out.println("Nothin' in that type buddy. Try again.");
         } else {
             System.out.println("Vehicles for the specified Type: ");
             for (Vehicle vehicle : vehicles) {
@@ -214,7 +235,7 @@ public class UserInterface {
         // Retrieve all vehicles from dealership inventory
         List<Vehicle> vehicles = dealership.getAllVehicles();
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles found in inventory.");
+            System.out.println("WE'RE ALL OUT OF CARS! EVERYONE PANIC");
         } else {
             // Display all vehicles
             System.out.println("Dealership Inventory:");
