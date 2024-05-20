@@ -1,0 +1,12 @@
+LEASE | 20240517|Briana|padillabriana1234@gmail.com
+  1HGCP36868A123456|2008|Honda|Accord|Sedan|Silver|90000.0|7000.0
+  0.0|0.0|7000.0|11.67
+SALE | 20240510| Briana
+  1C6RR7FT7GS123456|2016|Ram|1500|Truck|Silver|40000.0|27000.0
+  0.0|0.0|0.0|27000.0|false|0
+SALE | 20240505| Bobby
+  1C4HJXEG6JW123456|2018|Jeep|Wrangler|SUV|Green|30000.0|25000.0
+  0.0|0.0|0.0|25000.0|false|0
+LEASE | 20240510|Mary|maryhadalittlelamb@yahoo.cmo
+  5XXGN4A70FG123456|2015|Kia|Optima|Sedan|White|60000.0|13000.0
+  0.0|0.0|13000.0|21.67
